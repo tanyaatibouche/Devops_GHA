@@ -1,0 +1,36 @@
+services:
+  backend:
+    build: ./backend
+    networks:
+      - frontend-network
+      - backend-network
+    depends_on:
+      - database
+    restart: on-failure
+
+  database:
+    build: ./database
+    networks:
+      - backend-network
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: on-failure
+
+  httpd:
+    build: ./httpd
+    ports:
+      - "80:80"
+    networks:
+      - frontend-network
+    depends_on:
+      - backend
+    restart: on-failure
+
+networks:
+  frontend-network:
+  backend-network:
+
+volumes:
+  pgdata:

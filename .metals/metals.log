@@ -1,0 +1,41 @@
+2026.04.09 14:45:32 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\HP\flask-app\.metals\lsp.trace.json or C:\Users\HP\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2026.04.09 14:45:40 INFO  logging to files C:\Users\HP\flask-app\.metals\metals.log
+2026.04.09 14:45:40 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\HP\flask-app' for client Visual Studio Code 1.112.0.
+2026.04.09 14:45:40 INFO  time: initialize in 0.22s
+2026.04.09 14:45:40 INFO  Memory monitor started
+2026.04.09 14:45:49 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.04.09 14:45:51 INFO  no build target found for C:\Users\HP\flask-app\backend\Main.java. Using fallback presentation compiler.
+2026.04.09 14:45:52 WARN  no build tool detected in workspace 'C:\Users\HP\flask-app'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2026.04.09 14:45:52 WARN  Build server is not auto-connectable.
+2026.04.09 14:45:52 WARN  no build target for: C:\Users\HP\flask-app\backend\Main.java
+2026.04.09 15:11:45 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java
+2026.04.09 15:11:46 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:11:49 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java
+avr. 09, 2026 3:11:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 6
+2026.04.09 15:11:49 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:11:49 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:11:51 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:12:43 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:12:43 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java
+2026.04.09 15:12:43 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:12:43 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java
+2026.04.09 15:12:44 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\SimpleapiApplication.java. Using fallback presentation compiler.
+2026.04.09 15:12:44 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:12:45 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:12:57 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:12:57 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+avr. 09, 2026 3:12:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 26
+2026.04.09 15:12:57 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:12:59 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java
+2026.04.09 15:12:59 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+2026.04.09 15:13:27 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java. Using fallback presentation compiler.
+2026.04.09 15:13:27 WARN  no build target for: C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java
+2026.04.09 15:13:27 INFO  no build target found for c:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingsController.java. Using fallback presentation compiler.
+avr. 09, 2026 3:13:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 34
+2026.04.09 15:13:28 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java. Using fallback presentation compiler.
+2026.04.09 15:13:30 INFO  no build target found for C:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java. Using fallback presentation compiler.
+2026.04.09 15:17:22 INFO  no build target found for c:\Users\HP\flask-app\backend\simpleapi\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java. Using fallback presentation compiler.
+2026.04.09 15:17:23 WARN  no build target for: C:\Users\HP\flask-app\backend\src\main\java\fr\takima\training\simpleapi\Controller\GreetingController.java
