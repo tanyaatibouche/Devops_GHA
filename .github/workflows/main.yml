@@ -62,3 +62,8 @@ jobs:
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: SONARCLOUD
+        run:
+          mvn -B verify sonar:sonar -Dsonar.projectKey=<tanyaatibouche_Devops_GHA> -Dsonar.organization=<tanyaatibouche> -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file ./simple-api/pom.xml
+
