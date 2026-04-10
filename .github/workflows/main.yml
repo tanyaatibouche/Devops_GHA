@@ -65,5 +65,5 @@ jobs:
 
       - name: SONARCLOUD
         run:
-          mvn -B verify sonar:sonar -Dsonar.projectKey=<tanyaatibouche_Devops_GHA> -Dsonar.organization=<tanyaatibouche> -Dsonar.host.url=https:/backend/pom.xml
+          mvn -B verify sonar:sonar -Dsonar.projectKey=<tanyaatibouche_Devops_GHA> -Dsonar.organization=<tanyaatibouche> -Dsonar.host.url=https:./backend/pom.xml
 
