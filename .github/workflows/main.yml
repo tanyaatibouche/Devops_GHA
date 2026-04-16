@@ -21,7 +21,9 @@ jobs:
 
       - name: Build and test with Maven
         working-directory: ./backend
-        run: mvnw clean verify
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME }}
+        run: mvn clean verify
 
   build-and-push-docker-image:
     needs: test-backend
