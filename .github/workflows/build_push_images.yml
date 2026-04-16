@@ -1,8 +1,9 @@
-name: CI devops 2025
+name: Build and push images
 on:
   workflow_run:
     workflows: ["Integration test and sonar quality gate"]
-    type: completed
+    type: 
+      - completed
     branches: 
         - main
 
