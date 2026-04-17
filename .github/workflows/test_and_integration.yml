@@ -3,7 +3,6 @@ on:
   push:
     branches: 
         - main
-        - develop
   pull_request:
 
 jobs:
@@ -18,7 +17,7 @@ jobs:
                 distribution: 'temurin'
 
             - name: Build and test with Maven
-              working-directory: ./backend
+              working-dirctory: ./backend
               run: mvn clean verify
 
     sonar-analysis:
@@ -32,3 +31,21 @@ jobs:
               working-directory: ./backend
               run: mvn -B verify sonar:sonar -Dsonar.projectKey=tanyaatibouche_Devops_GHA -Dsonar.organization=tanyaatibouche -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
+    revert-on-failure:
+        needs: test-backend
+        if: ${{ failure() }}
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 1
+
+            - name: Revert last commit
+              run: |
+                git config user.name "github-actions"
+                git config user.email "github-actions@github.com"
+                git revert HEAD --no-edit
+                git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
