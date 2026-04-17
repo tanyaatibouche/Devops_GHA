@@ -17,7 +17,7 @@ jobs:
                 distribution: 'temurin'
 
             - name: Build and test with Maven
-              working-dirctory: ./backend
+              working-directory: ./backend
               run: mvn clean verify
 
     sonar-analysis:
