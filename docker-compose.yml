@@ -28,6 +28,14 @@ services:
       - backend
     restart: on-failure
 
+  frontend:
+    build: ./front
+    networks:
+      - frontend-network
+    depends-on:
+      - backend
+    restart: on-failure
+
 networks:
   frontend-network:
   backend-network:

@@ -5,4 +5,4 @@ all:
     ansible_python_interpreter: /opt/docker_venv/bin/python 
   children:
     prod:
-      hosts: ${{ secrets.SERVER_HOST }} 
+      hosts: "tanya.tibouche.takima.school"

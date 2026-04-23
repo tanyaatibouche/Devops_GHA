@@ -7,6 +7,7 @@
     - network
     - database
     - app
+    - front
     - proxy
 
   tasks:
