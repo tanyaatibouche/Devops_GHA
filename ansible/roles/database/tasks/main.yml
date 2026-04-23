@@ -1,0 +1,17 @@
+- name: Run database
+  docker_container:
+    name: database
+    image: bouc402/tp-devops-database:latest
+    networks:
+      - name: app-network
+    env:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    state: started
+    recreate: true
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python
+

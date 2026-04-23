@@ -1,0 +1,8 @@
+- name: Create app network
+  docker_network:
+    name: app-network
+  become: true
+  vars:
+    ansible_python_interpreter: /opt/docker_venv/bin/python
+  environment:
+    DOCKER_HOST: "unix:///var/run/docker.sock"
