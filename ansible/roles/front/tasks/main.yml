@@ -1,0 +1,8 @@
+- name: Run frontend
+  docker_container:
+    name: front
+    image: bouc402/tp-devops-front:latest
+    networks:
+      - name: app-network
+    state: started
+    recreate: true
