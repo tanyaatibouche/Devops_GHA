@@ -1,6 +1,5 @@
 name: Build and push images
 on:
-  workflow_dispatch:
   workflow_run:
     workflows: ["Integration test and sonar quality gate"]
     types: 
@@ -10,94 +9,84 @@ on:
 
 jobs:
   build-and-push-backend:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      
       - name: Build image and push backend
         uses: docker/build-push-action@v6
         with:
           context: ./backend 
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-backend:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-backend:${{ github.run_number }}
           push: ${{ github.ref == 'refs/heads/main' }}
 
   build-and-push-database:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      
       - name: Build image and push database
         uses: docker/build-push-action@v6
         with:
           context: ./database
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-database:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-database:${{ github.run_number }}
           push: ${{ github.ref == 'refs/heads/main' }}
 
   build-and-push-httpd:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      
       - name: Build image and push httpd
         uses: docker/build-push-action@v6
         with:
           context: ./httpd
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:${{ github.run_number }}
           push: ${{ github.ref == 'refs/heads/main' }}
 
   build-and-push-front:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
       - name: Login to DockerHub
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      
       - name: Build image and push front
         uses: docker/build-push-action@v6
         with:
           context: ./devops-front
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-front:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-front:${{ github.run_number }}
           push: ${{ github.ref == 'refs/heads/main' }}
+
   deploy:
     needs: 
       - build-and-push-backend
       - build-and-push-database
       - build-and-push-httpd
+      - build-and-push-front
+    # ← déclenchement manuel uniquement !
+    environment: production
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install Ansible
-      - working-directory: ./ansible
         run: |
           sudo apt update
           sudo apt install ansible -y
 
       - name: Setup SSH key
-      - working-directory: ./ansible
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
@@ -105,5 +94,5 @@ jobs:
           ssh-keyscan tanya.tibouche.takima.school >> ~/.ssh/known_hosts
 
       - name: Deploy with Ansible
-      - working-directory: ./ansible
-        run: ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
+        working-directory: ./ansible
+        run: ansible-playbook -i inventories/setup.yml playbook.yml
