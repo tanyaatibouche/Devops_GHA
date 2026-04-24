@@ -65,7 +65,7 @@ jobs:
       - name: Build image and push front
         uses: docker/build-push-action@v6
         with:
-          context: ./devops-front
+          context: ./devops-frontt
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-front:${{ github.run_number }}
           push: ${{ github.ref == 'refs/heads/main' }}
 
